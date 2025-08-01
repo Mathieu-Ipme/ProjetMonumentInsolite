@@ -1,0 +1,23 @@
+{% if title is defined %}
+    <h2 class="mt-5">{{ title }}</h2>
+{% endif %}
+<div class="row">
+    {% for article in articles %}
+{#        <a class="col-lg-4 col-md-6 col-sm-12 mb-2"#}
+        <a class="col-lg-5 col-md-8 col-sm-12 mb-2"
+           href="{{ path('app_show_article', {'slug': article.slug}) }}">
+            <h3>
+                {{ article.getBuldingName() }}
+            </h3>
+            <div class="container-img">
+                <img src="{{ article.imagePath }}"
+                     alt="{{ article.getBuldingName() }}">
+            </div>
+            <div class="d-flex justify-content-between">
+                <p>
+                    {{ article.description }}
+                </p>
+            </div>
+        </a>
+    {% endfor %}
+</div>

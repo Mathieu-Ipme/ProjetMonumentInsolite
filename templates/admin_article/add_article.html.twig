@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {%  set genres = get_genres() %}
+
+    <div class="container">
+        <h2>Ajouter un article</h2>
+{#        {{ form_start(formAddArticle) }}#}
+{#        {{ form_end(formAddArticle) }}#}
+        {{ form_start(form) }}
+              {{ form_end(form) }}
+    </div>
+{% endblock %}
+
+{% block title %}
+
+{% endblock %}
+

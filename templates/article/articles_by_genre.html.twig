@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container">
+        <h1>Monuments du genre {{ genre.label }}</h1>
+
+
+            {% include 'partials/_article_loop.html.twig' with {
+            'articles': genre.articles
+        } %}
+
+    </div>
+
+{% endblock %}
+
+{% block title %}
+    {{ genre.label }}
+{% endblock %}

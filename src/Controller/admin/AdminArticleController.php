@@ -23,14 +23,14 @@ final class AdminArticleController extends AbstractController
     {
         $this->denyAccessUnlessGranted('ROLE_ADMIN');
 
-        $articles = $articleRepository->findAll();
-          dump($articles);
+//        $articles = $articleRepository->findAll();
+//          dump($articles);
 
-//        $pagination = $paginator->paginate(
-//           $articleRepository->getAll(),
-//           $request->query->getInt('page', 1), /* page number */
-//            5 /* limit per page */
-//        );
+        $articles = $paginator->paginate(
+           $articleRepository->findAll(),
+           $request->query->getInt('page', 1), /* page number */
+            4 /* limit per page */
+        );
 //       $pagination->setCustomParameters([
 //            'align' => 'center',
 //        ]);

@@ -36,14 +36,24 @@ class RegistrationController extends AbstractController
             $entityManager->flush();
 
             // do anything else you need here, like send an email
+            // ajout non testé
+            $this->addFlash('success', 'Inscription réussie !');
 
             return $security->login($user, AppCustomAuthenticator::class, 'main');
         }
+
+
 
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form,
         ]);
     }
 
-
+#[Route('/contact', name: 'app_contact')]
+public function contact()
+{
+    return $this->render('contact/contact.html.twig', [
+//        'registrationForm' => $form,
+    ]);
+}
 }

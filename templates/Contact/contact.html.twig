@@ -1,0 +1,84 @@
+
+{% extends 'base.html.twig' %}
+
+
+
+
+{% block body %}
+
+
+    {% if(app.user) %}
+
+
+
+     <script src="{{ asset('js/contact.js') }}"></script>
+<div class="container ">
+    <div class="row">
+        <div>
+            {#                Column#}
+        </div>
+        <h1>Formulaire de contact</h1>
+        <form>
+<div class="mb-3" style="max-width: 890px;">
+    <label for="exampleFormControlInput1" class="form-label">Votre nom</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="nom">
+</div>
+<div class="mb-3" style="max-width: 890px;" >
+        <div class="mb-3">
+            <label for="exampleFormControlInput2" class="form-label">Votre adresse e-mail</label>
+            <input type="email" class="form-control" id="exampleFormControlInput2" placeholder="nom@exemple.com">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+</div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-3">Envoyer</button>
+            </div>
+        </form>
+        <div class="col">
+            {#                Column#}
+        </div>
+    </div>
+</div>
+    {% else %}
+<div class="container ">
+    <div class="row">
+        <div>
+            {#                Column#}
+        </div>
+           <h3 >Vous souhaitez nous contacter?</h3>
+{#            <h4 style="text-align: center">Une inscription est necessaire</h4>#}
+
+
+        <div class="card mb-3" style="max-width: 800px;">
+            <div class="row g-0">
+                <div class="col-md-7">
+                    <img src="https://wallpaperaccess.com/full/3124572.jpg" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-5">
+                    <div class="card-body">
+                        <h5 class="card-title">Premier cas: Non enregistré</h5>
+                        <p class="card-text">Clique sur l'imag   bababaaa  cgdfgerrfdfh cvggtefndersfgdfa</p>
+                        <a href="{{ path('app_register') }}" class="btn btn-primary">S'inscrire</a>
+                        <h5 class="card-title">Deuxieme cas: Vous avez votre compte</h5>
+                        <p class="card-text">Clique sur l'imag   bababaaa  cgdfgerrfdfh cvggtefndersfgdfa</p>
+                        <a href="{{ path('app_register') }}" class="btn btn-primary">S'inscrire</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    <div >
+        {#                Column#}
+    </div>
+</div>
+
+    {% endif %}
+
+
+
+
+{% endblock %}
+

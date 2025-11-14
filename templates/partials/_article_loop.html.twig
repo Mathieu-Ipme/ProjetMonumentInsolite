@@ -4,20 +4,36 @@
 <div class="row">
     {% for article in articles %}
 {#        <a class="col-lg-4 col-md-6 col-sm-12 mb-2"#}
-        <a class="col-lg-5 col-md-8 col-sm-12 mb-2"
-           href="{{ path('app_show_article', {'slug': article.slug}) }}">
-            <h3>
-                {{ article.getBuldingName() }}
-            </h3>
-            <div class="container-img">
-                <img src="{{ article.imagePath }}"
-                     alt="{{ article.getBuldingName() }}">
+{#        <a class="col-lg-5 col-md-8 col-sm-12 mb-2" style="text-decoration: none"#}
+{#           href="{{ path('app_show_article', {'slug': article.slug}) }}">#}
+{#            <h3 style="color: #cccccc">#}
+{#                {{ article.getBuldingName() }}#}
+{#            </h3>#}
+{#            <div class="container-img">#}
+{#                <img src="{{ article.imagePath }}"#}
+{#                     alt="{{ article.getBuldingName() }}">#}
+{#            </div>#}
+{#            <div class="d-flex justify-content-between">#}
+{#                <p style="color: #cccccc">#}
+{#                    {{ article.description }}#}
+{#                </p>#}
+{#            </div>#}
+{#        </a>}#}
+<div class="col-md-6">
+    <a href="{{ path('app_show_article', {'slug': article.slug}) }}" style="text-decoration: none">
+        {#           <div class="card" style="width: 18rem;">#}
+        <div class="card small-card">
+            {#                <img src="..." class="card-img-top" alt="...">#}
+            <img src="{{ article.imagePath }}"
+                 alt="{{ article.getBuldingName() }}">
+            <div class="card-body" style="background-color: #343a40; color: #cccccc">
+                <h5 class="card-title"> {{ article.getBuldingName() }}</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+                {#                    <a href="#" class="btn btn-primary">Go somewhere</a>#}
             </div>
-            <div class="d-flex justify-content-between">
-                <p>
-                    {{ article.description }}
-                </p>
-            </div>
-        </a>
+        </div>
+    </a>
+</div>
+
     {% endfor %}
 </div>

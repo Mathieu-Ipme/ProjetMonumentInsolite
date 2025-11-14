@@ -62,16 +62,16 @@ Request $request,
 //
 //        dd($lastThreeArticles);
 
-        $article = $paginator->paginate(
-            $articleRepository->findAll(),
-            $request->query->getInt('page', 1),
-            6);
+//        $article = $paginator->paginate(
+//            $articleRepository->findAll(),
+//            $request->query->getInt('page', 1),
+//            6);
 
         return $this->render('home/index.html.twig', [
 
             'lastTwoArticles' => $lastTwoArticles,
             'NextArticles' => $NextArticles,
-            'article' => $article
+//            'article' => $article
 
         ]);
 

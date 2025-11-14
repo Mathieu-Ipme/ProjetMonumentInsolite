@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello AdminArticleController!{% endblock %}
+{% block title %}Page d'administration!{% endblock %}
 
 {% block body %}
 <style>
@@ -8,39 +8,80 @@
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
 </style>
 
-{#        {%  set genres = get_genres() %}#}
-
-    <h2>Menu de l'administrateur pour les recettes</h2>
-
-    <table class="table">
-        <thead>
-        <tr>
-{#            <th scope="col">Id</th>#}
-            <th scope="col">Titre</th>
-            <th scope="col">City</th>
-            <th scope="col">Description</th>
-            <th scope="col">Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        {%  for article in articles %}
-        <tr>
-            <td>{{ article.title }}</td>
-            <td>{{ article.city }}</td>
-            <td>{{ article.description }}</td>
-            <td>
-                <a href="{{ path('app_admin_edit_article', {"slug" : article.slug}) }}" class="text-dark"> Modifier</a>
-                <a href="{{ path('app_admin_delete_article', {"id" : article.id}) }}" class="text-dark"> Supprimer</a>
-            </td>
-
-        </tr>
-
-        {% endfor %}
-
-        <a><a href="{{ path('app_admin_add_article', {"slug" : article.slug}) }}" class="text-dark"> Ajouter un article</a></a>
-        </tbody>
-    </table>
+<div class="container my-4">
+    {% include 'partials/Flashes.html.twig' %}
+    <h2>Menu de l'administrateur </h2>
+    <div class="text-bg-dark p-3"></div>
+    <div class="card text-center">
+        {#        <div class="card-header">#}
+        {#            Featured#}
+        {#        </div>#}
+        <div class="card-body" style="background-color: #6c757d">
+            <h2 class="card-title">Ajouter un article</h2>
+{#            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>#}
+            <a href="{{ path('app_admin_add_article') }}" class="btn btn-primary">Ajouter</a>
+        </div>
+        {#        <div class="card-footer text-body-secondary">#}
+        {#            2 days ago#}
+        {#        </div>#}
+    </div>
+    <div class="text-bg-dark p-3"></div>
+    <div class="text-bg-dark p-3"></div>
 
 
+    <div class="card text-center">
+        {#            <div class="card-header">#}
+        {#                Featured#}
+        {#            </div>#}
+        <div class="card-body" style="background-color: #6c757d">
+{#           <h5 class="card-title">Special title treatment</h5>#}
+            <h5 class="card-title"></h5>
+            {#                <p class="card-text">#}
+            <table class="table" >
+                <thead >
+                <tr  >
+                    <th scope="col"  style ="background-color: #a3b0bc">Titre</th>
+                    <th scope="col" style ="background-color: #a3b0bc" >City</th>
+                    <th scope="col" style ="background-color: #a3b0bc">Status</th>
+                    <th scope="col"style ="background-color: #a3b0bc" >Date de publication</th>
+                    {#                        <th scope="col">{{ knp_pagination_sortable(articles, 'Date de publication', a.publishedAt ) }}</th>#}
+                    <th scope="col"style ="background-color: #a3b0bc" >Description</th>
+                    <th scope="col"style ="background-color: #a3b0bc" >Actions</th>
+                </tr>
+                </thead>
+                <tbody >
+                <h2>Principales données des articles:</h2>
+                {%  for article in articles %}
+                <tr >
+                    <td style="background-color:  #67737e"  >{{ article.buldingName }}</td>
+                    <td style="background-color:  #67737e" >{{ article.city }}</td>
+                    <td style="background-color:  #67737e">{{ article.status }}</td>
+                    <td style="background-color:  #67737e">{{ article.publishedAt |date('d/m/Y') }}</td>
+                    <td style="background-color:  #67737e" >{{ article.description }}</td>
+                    <td style ="background-color: #a3b0bc" >
+                        <div class="d-flex gap-1"  >
+                            <a href="{{ path('app_admin_edit_article', {"slug" : article.slug}) }}" class="btn btn-primary btn-sm" > Modifier</a>
+                            <a href="{{ path('app_admin_delete_article', {"id" : article.id}) }}" class="btn btn-primary btn-sm"> Supprimer</a>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+            {#                </p>#}
+        </div>
+        {#            <div class="card-footer text-body-secondary">#}
+        {#                2 days ago#}
+        {#            </div>#}
+    </div>
+    <div class="container my-4">
+        {% include 'partials/Flashes.html.twig' %}
+    </div>
+    <div>
+</div>
 
+
+    <div class="navigation" >
+        {{ knp_pagination_render(articles) }}
+    </div>
 {% endblock %}
